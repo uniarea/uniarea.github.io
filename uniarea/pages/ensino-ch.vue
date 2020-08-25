@@ -15,15 +15,26 @@
 
       <!-- Internal Exams -->
       <template v-slot:cell(exam_internal)="row">
-        <b-form-checkbox v-model="row.item.exam_internal.is_active" type="checkbox" />
-        <template v-if="row.item.exam_internal.is_active">
-          <b-input-group prepend="1ª Fase">
-            <b-form-input v-if="row.item.exam_internal" v-model="row.item.exam_internal.first_phase_grade" type="number" min="0" max="200" />
-          </b-input-group>
-          <b-input-group prepend="2ª Fase">
-            <b-form-input v-if="row.item.exam_internal" v-model="row.item.exam_internal.second_phase_grade" type="number" min="0" max="200" />
-          </b-input-group>
-        </template>
+        <b-row>
+          <b-col cols="1">
+          <b-form-checkbox v-model="row.item.exam_internal.is_active" type="checkbox" />
+          </b-col>
+          <template v-if="row.item.exam_internal.is_active">
+            <b-col cols="4">
+            <b-input-group prepend="1ª Fase">
+              <b-form-input v-if="row.item.exam_internal" v-model="row.item.exam_internal.first_phase_grade" type="number" min="0" max="200" />
+            </b-input-group>
+            </b-col>
+            <b-col cols="4">
+            <b-input-group prepend="2ª Fase">
+              <b-form-input v-if="row.item.exam_internal" v-model="row.item.exam_internal.second_phase_grade" type="number" min="0" max="200" />
+            </b-input-group>
+            </b-col>
+            <b-col cols="1">
+            <b-form-checkbox v-model="row.item.exam_internal.is_from_previous_years" type="checkbox"> <span v-b-tooltip.hover :title="messages.previous_year"> (?) </span>  </b-form-checkbox>
+          </b-col>
+          </template>
+        </b-row>
       </template>
 
       <!-- External Exams -->
@@ -36,6 +47,9 @@
 export default {
   data () {
     return {
+      messages: {
+        previous_year: 'Assinalar a caixa se os exames foram realizados num ano anterior ao ano de candidatura.'
+      },
       fields: [
         {
           key: 'name',
@@ -63,12 +77,12 @@ export default {
 
       ],
       items: [
-        { name: 'Português', internal_10: 10, internal_11: 10, internal_12: 10, exam_internal: { is_active: false, first_phase_grade: 100, second_phase_grade: 100 } },
-        { name: 'Português', internal_10: 10, internal_11: 10, internal_12: 10, exam_internal: { is_active: false, first_phase_grade: 100, second_phase_grade: 100 } },
-        { name: 'Português', internal_10: 10, internal_11: 10, internal_12: 10, exam_internal: { is_active: false, first_phase_grade: 100, second_phase_grade: 100 } },
-        { name: 'Português', internal_10: 10, internal_11: 10, internal_12: 10, exam_internal: { is_active: false, first_phase_grade: 100, second_phase_grade: 100 } },
-        { name: 'Português', internal_10: 10, internal_11: 10, internal_12: 10, exam_internal: { is_active: false, first_phase_grade: 100, second_phase_grade: 100 } },
-        { name: 'Português', internal_10: 10, internal_11: 10, internal_12: null, exam_internal: { is_active: false, first_phase_grade: 100, second_phase_grade: 100 } }
+        { name: 'Português', internal_10: 10, internal_11: 10, internal_12: 10, exam_internal: { is_active: false, first_phase_grade: 100, second_phase_grade: 100, is_from_previous_years: false } },
+        { name: 'Português', internal_10: 10, internal_11: 10, internal_12: 10, exam_internal: { is_active: false, first_phase_grade: 100, second_phase_grade: 100, is_from_previous_years: false } },
+        { name: 'Português', internal_10: 10, internal_11: 10, internal_12: 10, exam_internal: { is_active: false, first_phase_grade: 100, second_phase_grade: 100, is_from_previous_years: false } },
+        { name: 'Português', internal_10: 10, internal_11: 10, internal_12: 10, exam_internal: { is_active: false, first_phase_grade: 100, second_phase_grade: 100, is_from_previous_years: false } },
+        { name: 'Português', internal_10: 10, internal_11: 10, internal_12: 10, exam_internal: { is_active: false, first_phase_grade: 100, second_phase_grade: 100, is_from_previous_years: false } },
+        { name: 'Português', internal_10: 10, internal_11: 10, internal_12: 10, exam_internal: { is_active: false, first_phase_grade: 100, second_phase_grade: 100, is_from_previous_years: false } }
       ]
     }
   }
