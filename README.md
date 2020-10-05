@@ -8,9 +8,9 @@ Em versões de teste desde 2015, foi lançada antes do final do ano letivo de 20
 
 Dúvidas gerais acerca do funcionamento do Simulador podem ser encontradas [aqui](http://uniarea.com/forum/index.php?threads/simulador-de-candidatura-uniarea-discussão-geral.20070/).
 
-Desenvolvido por @antonioalmeida e @cyrilico.
+Desenvolvido por [@antonioalmeida](https://github.com/antonioalmeida) e [@cyrilico](https://github.com/cyrilico).
 
-# Portugese University Access Simulator
+# Portuguese University Access Simulator
 
 Website developed to help Portuguese senior highschool students with the application process for university access, considering their school path, grades, and university/curriculum of choice. 
 
@@ -18,4 +18,4 @@ With alpha versions since 2015, it was launched in the 2016/17 school year cover
 
 General questions about using the app can be found [here](ttp://uniarea.com/forum/index.php?threads/simulador-de-candidatura-uniarea-discussão-geral.20070/) (in Portuguese).
 
-Developed by @antonioalmeida and @cyrilico.
+Developed by [@antonioalmeida](https://github.com/antonioalmeida) and [@cyrilico](https://github.com/cyrilico).
