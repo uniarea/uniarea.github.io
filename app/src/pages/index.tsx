@@ -1,18 +1,17 @@
 import * as React from 'react'
-import Nav from '../components/organisms/navbar'
-import { Container, Jumbotron, Button } from 'react-bootstrap'
+import { Nav } from '../components/organisms/navbar'
+import { Container } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Link } from 'gatsby'
-import Header from '../components/organisms/header'
+import { PageIntro } from '../components/atoms/page-intro'
 
-const IndexPage = () => {
+const IndexPage: React.FC = () => {
   return (
     <>
       <Nav />
       <main>
         <Container>
-          <Header subheading="Cálculo da Nota de Acesso ao Ensino Superior"/>
-
+          <PageIntro subheading="Cálculo da Nota de Acesso ao Ensino Superior" />
           <p>
             <ul>
               <li>
