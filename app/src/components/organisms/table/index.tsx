@@ -9,10 +9,13 @@ export interface TableColumnProps {
 
 export interface TableProps {
   columnTitles: TableColumnProps[]
-  courses: TableRowProps[]
+  courses: TableRowProps[] 
+  // TODO: add more specific type
+  onChange: any
 }
 
-export const Table: React.FC<TableProps> = ({ columnTitles, courses }: TableProps) => {
+export const Table: React.FC<TableProps> = ({ columnTitles, courses, onChange }: TableProps) => {
+
   return (
     <BTable striped hover>
       <thead>
@@ -31,7 +34,7 @@ export const Table: React.FC<TableProps> = ({ columnTitles, courses }: TableProp
       </thead>
       <tbody>
         {courses.map((course: TableRowProps, i) => (
-          <TableRow key={i} {...course} />
+          <TableRow key={i} {...course} onChange={onChange} />
         ))}
       </tbody>
     </BTable>

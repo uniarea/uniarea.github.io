@@ -17,27 +17,37 @@ const Template: Story<TableRowProps> = (args) => (
 
 export const Default = Template.bind({})
 Default.args = {
-  name: 'Course Name',
-  internalScores: [19, 20, 10],
+  id: 'course-0',
+  label: 'Course Name',
+  isAccessExam: true,
+  internalScores: {
+    year10: 15,
+    year11: 15,
+    year12: 16
+  },
   exams: {
     internal: {
       firstPhase: {
+        grade: 150,
         active: true,
-        grade: 100
+        isFromPreviousYears: false
       },
       secondPhase: {
+        grade: 150,
         active: true,
-        grade: 100
+        isFromPreviousYears: false
       }
     },
     external: {
       firstPhase: {
+        grade: 150,
         active: true,
-        grade: 100
+        isFromPreviousYears: false
       },
       secondPhase: {
+        grade: 150,
         active: true,
-        grade: 100
+        isFromPreviousYears: false
       }
     }
   }

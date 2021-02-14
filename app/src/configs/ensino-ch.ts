@@ -1,18 +1,4 @@
-import React from 'react'
-import { Story, Meta } from '@storybook/react/types-6-0'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import { Table, TableProps } from '.'
-import { Row } from 'react-bootstrap'
-
-export default {
-  title: 'Table',
-  component: Table
-} as Meta
-
-const Template: Story<TableProps> = ({ columnTitles, courses }) => <Row className="mt-5"><Table columnTitles={columnTitles} courses={courses} onChange={(e) => console.log(e)} /> </Row>
-
-export const Default = Template.bind({})
-Default.args = {
+export const ENSINO_CH_CONFIG = {
   columnTitles: [
     {
       name: 'Name 1',

@@ -8,8 +8,13 @@ export interface ExamDetails {
 }
 
 export interface TableRowProps {
-  name: string
-  internalScores: number[]
+  id: string
+  label: string
+  internalScores: {
+    year10?: number,
+    year11?: number,
+    year12?: number
+  }
   exams: {
     internal: {
       firstPhase: ExamDetails
@@ -20,60 +25,63 @@ export interface TableRowProps {
       secondPhase: ExamDetails
     }
   },
-  isAccessExam: boolean 
+  isAccessExam: boolean
+  // TODO: add more specific type
+  onChange?: any
 }
 
-const ExamInput: React.FC<ExamDetails> = ({ active, grade, isFromPreviousYears }: ExamDetails) => {
-  return (
-    <Row>
-      <Col md="1">
-        <Form.Group>
-          <Form.Check type="checkbox" checked={active} />
-        </Form.Group>
-      </Col>
-      {active && (
-        <>
-          <Col>
-            <InputGroup>
-              <Form.Control type="number" disabled={!active} value={grade} />
-              <InputGroup.Append>
-                <InputGroup.Checkbox checked={isFromPreviousYears} />
-              </InputGroup.Append>
-            </InputGroup>
-          </Col>
-        </>
-      )}
-    </Row>
-  )
-}
+export const TableRow: React.FC<TableRowProps> = ({ id, label, internalScores, exams, isAccessExam, onChange }: TableRowProps) => {
 
-export const TableRow: React.FC<TableRowProps> = ({ name, internalScores, exams, isAccessExam }: TableRowProps) => {
+  const ExamInput: React.FC<ExamDetails & { name: string}> = ({ active, grade, isFromPreviousYears, name }: ExamDetails & { name: string}) => {
+    return (
+      <Row>
+        <Col md="1">
+          <Form.Group>
+            <Form.Check type="checkbox" id={id} name={`${name}.active`} checked={active} onClick={onChange} />
+          </Form.Group>
+        </Col>
+        {active && (
+          <>
+            <Col>
+              <InputGroup>
+                <Form.Control type="number" id={id} name={`${name}.grade`} disabled={!active} value={grade} onChange={onChange}/>
+                <InputGroup.Append>
+                  <InputGroup.Checkbox onClick={onChange} id={id} name={`${name}.isFromPreviousYears`} checked={isFromPreviousYears} />
+                </InputGroup.Append>
+              </InputGroup>
+            </Col>
+          </>
+        )}
+      </Row>
+    )
+  }
+
   return (
     <tr>
-      <td>{name}</td>
+      <td>{label}</td>
       <td>
-        <Form.Control type="number" value={internalScores[0]} />
+        <Form.Control type="number" value={internalScores.year10} onChange={onChange} id={id} name={'internalScores.year10'}/>
       </td>
       <td>
-        <Form.Control type="number" value={internalScores[1]} />
+        <Form.Control type="number" value={internalScores.year11} onChange={onChange} id={id} name={'internalScores.year11'}/>
       </td>
       <td>
-        <Form.Control type="number" value={internalScores[2]} />
+        <Form.Control type="number" value={internalScores.year12} onChange={onChange} id={id} name={'internalScores.year12'}/>
       </td>
       <td>
-        <ExamInput {...exams.internal.firstPhase} />
+        <ExamInput {...exams.internal.firstPhase} name={'exams.internal.firstPhase'} />
       </td>
       <td>
-        <ExamInput {...exams.internal.secondPhase} />
+        <ExamInput {...exams.internal.secondPhase} name={'exams.internal.secondPhase'} />
       </td>
       <td>
-        <ExamInput {...exams.external.firstPhase} />
+        <ExamInput {...exams.external.firstPhase} name={'exams.external.firstPhase'} />
       </td>
       <td>
-        <ExamInput {...exams.external.secondPhase} />
+        <ExamInput {...exams.external.secondPhase} name={'exams.external.secondPhase'} />
       </td>
       <td>
-        <Form.Check type="checkbox" label="Sim" checked={isAccessExam} />
+        <Form.Check type="checkbox" label="Sim" onClick={onChange} id={id} checked={isAccessExam} name={'isAccessExam'} />
       </td>
     </tr>
   )
