@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Nav } from '../components/organisms/navbar'
+import { Nav } from '../components/atoms/navbar'
 import { Container } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Link } from 'gatsby'

@@ -31,69 +31,118 @@ Default.args = {
       tooltip: 'This is additional information that is shown on hover.'
     },
     {
-      name: 'Name 5',
+      name: 'Interno 1ª Fase',
       tooltip: 'This is additional information that is shown on hover.'
     },
     {
-      name: 'Name 6',
+      name: 'Interno 2ª Fase',
       tooltip: 'This is additional information that is shown on hover.'
     },
     {
-      name: 'Name 7',
+      name: 'Externo 1ª Fase',
       tooltip: 'This is additional information that is shown on hover.'
     },
     {
-      name: 'Name 8',
+      name: 'Externo 2ª Fase',
+      tooltip: 'This is additional information that is shown on hover.'
+    },
+    {
+      name: 'Prova de Ingresso',
       tooltip: 'This is additional information that is shown on hover.'
     },
   ],
   courses: [
     {
       name: 'Course Name',
+      isAccessExam: true,
       internalScores: [19, 20, 10],
-      examInternal: {
-        active: true,
-        firstPhaseGrade: 150,
-        secondPhaseGrade: 150,
-        isFromPreviousYears: true
-      },
-      examExternal: {
-        active: true,
-        firstPhaseGrade: 100,
-        secondPhaseGrade: 100,
-        isFromPreviousYears: true
+      exams: {
+        internal: {
+          firstPhase: {
+            grade: 150,
+            active: true,
+            isFromPreviousYears: false
+          },
+          secondPhase: {
+            grade: 150,
+            active: true,
+            isFromPreviousYears: false
+          }
+        },
+        external: {
+          firstPhase: {
+            grade: 150,
+            active: true,
+            isFromPreviousYears: false
+          },
+          secondPhase: {
+            grade: 150,
+            active: true, 
+            isFromPreviousYears: false
+          }
+        }
       }
     },
     {
       name: 'Course Name',
+      isAccessExam: false,
       internalScores: [19, 20, 10],
-      examInternal: {
-        active: true,
-        firstPhaseGrade: 150,
-        secondPhaseGrade: 150,
-        isFromPreviousYears: true
-      },
-      examExternal: {
-        active: true,
-        firstPhaseGrade: 100,
-        secondPhaseGrade: 100,
-        isFromPreviousYears: true
+      exams: {
+        internal: {
+          firstPhase: {
+            grade: 150,
+            active: true,
+            isFromPreviousYears: false
+          },
+          secondPhase: {
+            grade: 150,
+            active: true,
+            isFromPreviousYears: false
+          }
+        },
+        external: {
+          firstPhase: {
+            grade: 150,
+            active: true,
+            isFromPreviousYears: false
+          },
+          secondPhase: {
+            grade: 150,
+            active: true, 
+            isFromPreviousYears: false
+          }
+        }
       }
     },
     {
       name: 'Course Name',
+      isAccessExam: true,
       internalScores: [19, 20, 10],
-      examInternal: {
-        active: true,
-        firstPhaseGrade: 150,
-        secondPhaseGrade: 150,
-        isFromPreviousYears: true
-      },
-      examExternal: {
-        active: true,
-        firstPhaseGrade: 100,
-        secondPhaseGrade: 100,
-        isFromPreviousYears: true
+      exams: {
+        internal: {
+          firstPhase: {
+            grade: 150,
+            active: true,
+            isFromPreviousYears: false
+          },
+          secondPhase: {
+            grade: 150,
+            active: false,
+            isFromPreviousYears: false
+          }
+        },
+        external: {
+          firstPhase: {
+            grade: 150,
+            active: true,
+            isFromPreviousYears: false
+          },
+          secondPhase: {
+            grade: 150,
+            active: true, 
+            isFromPreviousYears: false
+          }
+        }
       }
     }
   ]

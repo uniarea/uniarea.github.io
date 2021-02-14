@@ -19,16 +19,26 @@ export const Default = Template.bind({})
 Default.args = {
   name: 'Course Name',
   internalScores: [19, 20, 10],
-  examInternal: {
-    active: true,
-    firstPhaseGrade: 150,
-    secondPhaseGrade: 150,
-    isFromPreviousYears: true
-  },
-  examExternal: {
-    active: true,
-    firstPhaseGrade: 100,
-    secondPhaseGrade: 100,
-    isFromPreviousYears: true
+  exams: {
+    internal: {
+      firstPhase: {
+        active: true,
+        grade: 100
+      },
+      secondPhase: {
+        active: true,
+        grade: 100
+      }
+    },
+    external: {
+      firstPhase: {
+        active: true,
+        grade: 100
+      },
+      secondPhase: {
+        active: true,
+        grade: 100
+      }
+    }
   }
-}
+} as TableRowProps

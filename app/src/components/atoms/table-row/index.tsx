@@ -1,35 +1,53 @@
 import * as React from 'react'
-import { Form } from 'react-bootstrap'
+import { Form, Row, Col, InputGroup } from 'react-bootstrap'
 
 export interface ExamDetails {
   active: boolean
-  firstPhaseGrade: number
-  secondPhaseGrade: number
+  grade: number
   isFromPreviousYears: boolean
 }
 
 export interface TableRowProps {
   name: string
   internalScores: number[]
-  examInternal: ExamDetails
-  examExternal: ExamDetails
+  exams: {
+    internal: {
+      firstPhase: ExamDetails
+      secondPhase: ExamDetails
+    }
+    external: {
+      firstPhase: ExamDetails
+      secondPhase: ExamDetails
+    }
+  },
+  isAccessExam: boolean 
 }
 
-const ExamInput: React.FC<ExamDetails> = ({ active, firstPhaseGrade, secondPhaseGrade, isFromPreviousYears }: ExamDetails) => {
+const ExamInput: React.FC<ExamDetails> = ({ active, grade, isFromPreviousYears }: ExamDetails) => {
   return (
-    <>
-      <td>
-        <Form.Control type="number" value={firstPhaseGrade} />
-      </td>
-      <td>
-        <Form.Control type="number" value={secondPhaseGrade} />
-      </td>
-    </>
+    <Row>
+      <Col md="1">
+        <Form.Group>
+          <Form.Check type="checkbox" checked={active} />
+        </Form.Group>
+      </Col>
+      {active && (
+        <>
+          <Col>
+            <InputGroup>
+              <Form.Control type="number" disabled={!active} value={grade} />
+              <InputGroup.Append>
+                <InputGroup.Checkbox checked={isFromPreviousYears} />
+              </InputGroup.Append>
+            </InputGroup>
+          </Col>
+        </>
+      )}
+    </Row>
   )
 }
 
-export const TableRow: React.FC<TableRowProps> = ({ name, internalScores, examInternal, examExternal }: TableRowProps) => {
-
+export const TableRow: React.FC<TableRowProps> = ({ name, internalScores, exams, isAccessExam }: TableRowProps) => {
   return (
     <tr>
       <td>{name}</td>
@@ -42,8 +60,21 @@ export const TableRow: React.FC<TableRowProps> = ({ name, internalScores, examIn
       <td>
         <Form.Control type="number" value={internalScores[2]} />
       </td>
-      {examInternal?.active ? ExamInput(examInternal) : <><td></td><td></td></> }
-      {examExternal?.active ? ExamInput(examExternal) : <><td></td><td></td></> }
+      <td>
+        <ExamInput {...exams.internal.firstPhase} />
+      </td>
+      <td>
+        <ExamInput {...exams.internal.secondPhase} />
+      </td>
+      <td>
+        <ExamInput {...exams.external.firstPhase} />
+      </td>
+      <td>
+        <ExamInput {...exams.external.secondPhase} />
+      </td>
+      <td>
+        <Form.Check type="checkbox" label="Sim" checked={isAccessExam} />
+      </td>
     </tr>
   )
 }
