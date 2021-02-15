@@ -11,8 +11,8 @@ export interface TableRowProps {
   id: string
   label: string
   internalScores: {
-    year10?: number,
-    year11?: number,
+    year10?: number
+    year11?: number
     year12?: number
   }
   exams: {
@@ -24,27 +24,29 @@ export interface TableRowProps {
       firstPhase: ExamDetails
       secondPhase: ExamDetails
     }
-  },
+  }
   isAccessExam: boolean
   // TODO: add more specific type
   onChange?: any
 }
 
 export const TableRow: React.FC<TableRowProps> = ({ id, label, internalScores, exams, isAccessExam, onChange }: TableRowProps) => {
-
-  const ExamInput: React.FC<ExamDetails & { name: string}> = ({ active, grade, isFromPreviousYears, name }: ExamDetails & { name: string}) => {
+  const ExamInput: React.FC<ExamDetails & { name: string }> = ({
+    active,
+    grade,
+    isFromPreviousYears,
+    name
+  }: ExamDetails & { name: string }) => {
     return (
       <Row>
         <Col md="1">
-          <Form.Group>
-            <Form.Check type="checkbox" id={id} name={`${name}.active`} checked={active} onClick={onChange} />
-          </Form.Group>
+          <Form.Check type="checkbox" id={id} name={`${name}.active`} checked={active} onClick={onChange} />
         </Col>
         {active && (
           <>
             <Col>
-              <InputGroup>
-                <Form.Control type="number" id={id} name={`${name}.grade`} disabled={!active} value={grade} onChange={onChange}/>
+              <InputGroup >
+                <Form.Control type="number" id={id} name={`${name}.grade`} value={grade} onChange={onChange} />
                 <InputGroup.Append>
                   <InputGroup.Checkbox onClick={onChange} id={id} name={`${name}.isFromPreviousYears`} checked={isFromPreviousYears} />
                 </InputGroup.Append>
@@ -60,13 +62,13 @@ export const TableRow: React.FC<TableRowProps> = ({ id, label, internalScores, e
     <tr>
       <td>{label}</td>
       <td>
-        <Form.Control type="number" value={internalScores.year10} onChange={onChange} id={id} name={'internalScores.year10'}/>
+        <Form.Control type="number" value={internalScores.year10} onChange={onChange} id={id} name={'internalScores.year10'} />
       </td>
       <td>
-        <Form.Control type="number" value={internalScores.year11} onChange={onChange} id={id} name={'internalScores.year11'}/>
+        <Form.Control type="number" value={internalScores.year11} onChange={onChange} id={id} name={'internalScores.year11'} />
       </td>
       <td>
-        <Form.Control type="number" value={internalScores.year12} onChange={onChange} id={id} name={'internalScores.year12'}/>
+        <Form.Control type="number" value={internalScores.year12} onChange={onChange} id={id} name={'internalScores.year12'} />
       </td>
       <td>
         <ExamInput {...exams.internal.firstPhase} name={'exams.internal.firstPhase'} />

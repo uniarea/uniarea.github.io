@@ -146,5 +146,35 @@ export const ENSINO_CH_CONFIG = {
         }
       }
     }
-  ]
+  ],
+  extraExams: {
+    id: 'extra-exams',
+    active: true,
+    exams: [
+      {
+        id: 'exam-1',
+        label: 'Exam 1',
+        firstPhase: {
+          active: true,
+          grade: 150
+        },
+        secondPhase: {
+          active: true,
+          grade: 175
+        }
+      },
+      {
+        id: 'exam-2',
+        label: 'Exam 2',
+        firstPhase: {
+          active: true,
+          grade: 150
+        },
+        secondPhase: {
+          active: true,
+          grade: 175
+        }
+      }
+    ]
+  }
 }
