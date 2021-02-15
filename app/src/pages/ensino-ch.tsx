@@ -66,6 +66,11 @@ const EnsinoCh: React.FC = () => {
     setExtraExams(extraExams.filter((item, j) => i !== j))
   }
 
+  const handleActivetoggle = (e) => {
+    const { checked } = e.target
+    setExtraExamsActive(checked)
+  }
+
   return (
     <>
       <Nav />
@@ -73,7 +78,14 @@ const EnsinoCh: React.FC = () => {
         <Container fluid>
           <PageIntro subheading={'Ensino Científico-Humanístico Regular'} />
           <Table columnTitles={columnTitles} courses={courses} onChange={handleCourseChange} />
-          <ExtraExamTable active={extraExamsActive} exams={extraExams} onChange={handleExtraExamchange} onAdd={handleAddExtraExam} onRemove={handleRemoveExtraExam} />
+          <ExtraExamTable
+            active={extraExamsActive}
+            exams={extraExams}
+            onActiveToggle={handleActivetoggle}
+            onChange={handleExtraExamchange}
+            onAdd={handleAddExtraExam}
+            onRemove={handleRemoveExtraExam}
+          />
         </Container>
       </main>
     </>

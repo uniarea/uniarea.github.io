@@ -149,7 +149,7 @@ export const ENSINO_CH_CONFIG = {
   ],
   extraExams: {
     id: 'extra-exams',
-    active: true,
+    active: false,
     exams: [
       {
         id: 'exam-1',
@@ -159,8 +159,8 @@ export const ENSINO_CH_CONFIG = {
           grade: 150
         },
         secondPhase: {
-          active: true,
-          grade: 175
+          active: false,
+          grade: 150
         }
       },
       {
@@ -171,8 +171,8 @@ export const ENSINO_CH_CONFIG = {
           grade: 150
         },
         secondPhase: {
-          active: true,
-          grade: 175
+          active: false,
+          grade: 150
         }
       }
     ]
