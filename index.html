@@ -134,7 +134,7 @@
 
             <footer class="footer text-center">
                 <div class="container">
-                    &copy; Uni<span class="text-red">area</span>, 2020 by AA & CD
+                    &copy; Uni<span class="text-red">area</span>, <span id="current-year" style="display:none;"></span> by AA & CD
                 </div>
             </footer>
 
@@ -159,7 +159,9 @@
             <!-- initialize tooltips -->
             <script>
             $(function () {
-                $('[data-toggle="tooltip"]').tooltip()
+                $('#current-year').text(new Date().getFullYear());
+                $('#current-year').show({ duration: 200 });
+                $('[data-toggle="tooltip"]').tooltip();
             })
             </script>
         </body>
