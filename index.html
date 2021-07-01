@@ -134,7 +134,7 @@
 
             <footer class="footer text-center">
                 <div class="container">
-                    &copy; Uni<span class="text-red">area</span>, <span id="current-year" style="display:none;"></span> by AA & CD
+                    &copy; Uni<span class="text-red">area</span>, <span id="current-year"></span> by AA & CD
                 </div>
             </footer>
 
@@ -156,11 +156,12 @@
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
             <!-- clipboard.js -->
             <script src="js/clipboard.min.js"></script>
-            <!-- initialize tooltips -->
+            <!-- initialize tooltips & current year to display on footer -->
             <script>
             $(function () {
+                // Set current year
                 $('#current-year').text(new Date().getFullYear());
-                $('#current-year').show({ duration: 200 });
+                // Initialize tooltips
                 $('[data-toggle="tooltip"]').tooltip();
             })
             </script>
