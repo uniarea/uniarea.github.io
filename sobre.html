@@ -129,7 +129,7 @@
 
             <footer class="footer text-center">
                 <div class="container">
-                    &copy; Uni<span class="text-red">area</span>, 2017 by AA & CD
+                    &copy; Uni<span class="text-red">area</span>, <span id="current-year"></span> by AA & CD
                 </div>
             </footer>
 
@@ -154,7 +154,10 @@
             <!-- initialize tooltips -->
             <script>
             $(function () {
-                $('[data-toggle="tooltip"]').tooltip()
+                // Set current year
+                $('#current-year').text(new Date().getFullYear());
+                // Initialize tooltips
+                $('[data-toggle="tooltip"]').tooltip();
             })
             </script>
         </body>
